@@ -60,10 +60,14 @@ spec:
     metadata:
       labels:
         app: kubenews
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
     spec:
       containers:
       - name: webkubenewsapp
-        image: esperancaleo/kube-news:v2
+        image: esperancaleo/kube-news:latest
         resources:
           limits:
             memory: "128Mi"
